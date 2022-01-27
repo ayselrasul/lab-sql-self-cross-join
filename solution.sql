@@ -3,6 +3,8 @@
 -- In this lab, you will be using the Sakila database of movie rentals.
 -- Instructions
 
+    use sakila;
+
 
 -- Get all pairs of actors that worked together
  
