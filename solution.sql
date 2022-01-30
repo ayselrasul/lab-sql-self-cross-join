@@ -12,7 +12,7 @@
   	     concat(bc.first_name, ' ', bc.last_name) as actor_2
   from film_actor a
   join film_actor b
-  	on a.film_id = b.film_id and a.actor_id <> b.actor_id
+  	on a.film_id = b.film_id and a.actor_id > b.actor_id. -- to avoid duplicates
   join actor ac 
   	on a.actor_id = ac.actor_id
   join actor bc 
@@ -31,7 +31,7 @@
   select r1.customer_id, r2.customer_id, count(*)
   from film_rental r1
   join film_rental r2 
-  on (r1.film_id = r2.film_id) and r1.customer_id <> r2.customer_id
+  on (r1.film_id = r2.film_id) and r1.customer_id > r2.customer_id   -- to avoid duplicates
   group by r1.customer_id, r2.customer_id
   having count(*) >= 3
   order by count(*) desc;
